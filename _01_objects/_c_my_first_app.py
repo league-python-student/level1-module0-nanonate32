@@ -1,18 +1,7 @@
 import tkinter as tk
-from PIL import Image, ImageTk
+#from PIL import Image, ImageTk
 
 
-def create_image(filename, width, height):
-    image_obj = None
-
-    try:
-        image = Image.open(filename)
-        image = image.resize((width, height), Image.ANTIALIAS)
-        image_obj = ImageTk.PhotoImage(image=image)
-    except FileNotFoundError as fnf:
-        print("ERROR: Unable to find file " + filename)
-
-    return image_obj
 
 
 # Make a new class that inherits tk.Tk
@@ -29,18 +18,18 @@ class MyFirstPythonApp(tk.Tk):
         # Add a text label. Notice 'textvariable=' is used, not 'text=' because
         # we want to update the text on the label
         label = tk.Label(self, textvariable=self.label_text, bg='yellow', fg='blue', font=('arial', 32, 'bold'), relief='solid')
-
+        fable = tk.Label(self, self.label_text, bg = 'blue', fg = 'red', font=('arial', 32, 'bold'), relief = 'solid')
         # You can set the location of the label relative to the size of the window
         # The scaling will be maintained if the the app window is resized
         label.place(relx=0.1, rely=0.1, relwidth=0.8, relheight=0.1)
 
         # Add an image
-        img = create_image('python.png', 200, 200)
-        label_image = tk.Label(self, image=img)
-        label_image.image = img
+#        img = create_image('python.png', 200, 200)
+#        label_image = tk.Label(self, image=img)
+#        label_image.image = img
 
         # You can set the absolute pixel location using x and y
-        label_image.place(x=125, y=200)
+#        label_image.place(x=125, y=200)
 
         # Add a button.
         # command=lambda: self.on_button_press() tells the program to call the
